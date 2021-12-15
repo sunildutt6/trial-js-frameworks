@@ -8,7 +8,7 @@ import Row from "react-bootstrap/Row";
 import HomeItems from "./HomeItems";
 
 const Home = () => {
-  const [drinks, setDrinks] = useState([]);
+  const [cartoon, setCartoons] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
@@ -16,8 +16,8 @@ const Home = () => {
     async function getData() {
       try {
         const response = await axios.get(API_URL);
-        console.log(response.data);
-        setDrinks(response.data);
+        console.log(response.data.results);
+        setCartoons(response.data.results);
       } catch (error) {
         setError(error.toString());
       } finally {
@@ -38,21 +38,15 @@ const Home = () => {
     <Container>
       <Heading title="Home-Page" />
       <Row>
-        {drinks.map(function (drink) {
-          const {
-            id,
-            name,
-            tagline,
-
-            image_url,
-          } = drink;
+        {cartoon.map(function (cartoon) {
+          const { id, name, status, image } = cartoon;
           return (
             <HomeItems
               key={id}
               id={id}
               name={name}
-              tagline={tagline}
-              image_url={image_url}
+              status={status}
+              image={image}
             />
           );
         })}

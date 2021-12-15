@@ -6,7 +6,7 @@ import Spinner from "react-bootstrap/Spinner";
 import Container from "react-bootstrap/Container";
 
 function Detail() {
-  const [drinks, setDrinks] = useState({});
+  const [cartoon, setCartoon] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
@@ -20,7 +20,7 @@ function Detail() {
         try {
           const response = await axios.get(url);
           console.log(response.data);
-          setDrinks(response.data);
+          setCartoon(response.data);
         } catch (error) {
           setError(error.toString());
         } finally {
@@ -41,7 +41,7 @@ function Detail() {
 
   return (
     <div>
-      <p>{drinks.name}</p>
+      <p>{cartoon.name}</p>
     </div>
   );
 }

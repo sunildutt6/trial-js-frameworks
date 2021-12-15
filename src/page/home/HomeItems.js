@@ -13,20 +13,12 @@ const StyleDiv = styled.div`
   .card-title {
     text-decoration: none;
     &:before {
-      content: "Title: ";
+      content: " ";
     }
   }
 `;
 
-function HomeItems({
-  id,
-  name,
-  tagline,
-  first_brewed,
-  image_url,
-  brewers_tips,
-  description,
-}) {
+function HomeItems({ id, name, status, image }) {
   return (
     <Col>
       <NavLink to={`detail/${id}`}>
@@ -34,14 +26,14 @@ function HomeItems({
           <Card style={{ width: "15rem" }} className="card">
             <Card.Img
               variant="top"
-              src={image_url}
+              src={image}
               width={250}
-              height={500}
+              height={250}
               className="mb-3"
             />
             <Card.Body>
               <Card.Title className="card-title">
-                {name.substring(0, 10).toUpperCase()}
+                {name.toUpperCase()}
               </Card.Title>
             </Card.Body>
           </Card>
@@ -54,11 +46,8 @@ function HomeItems({
 HomeItems.propTypes = {
   id: PropTypes.number.isRequired,
   name: PropTypes.string.isRequired,
-  tagline: PropTypes.string,
-  brewers_tips: PropTypes.string,
-  first_brewed: PropTypes.string,
-  description: PropTypes.string,
-  image_url: PropTypes.string.isRequired,
+  status: PropTypes.string,
+  image: PropTypes.string,
 };
 
 export default HomeItems;
