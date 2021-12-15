@@ -4,6 +4,11 @@ import { API_URL } from "../../constants/api";
 import { useParams } from "react-router-dom";
 import Spinner from "react-bootstrap/Spinner";
 import Container from "react-bootstrap/Container";
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
+import Image from "react-bootstrap/Image";
+import Card from "react-bootstrap/Card";
+import moment from "moment";
 
 function Detail() {
   const [cartoon, setCartoon] = useState(null);
@@ -40,9 +45,31 @@ function Detail() {
   }
 
   return (
-    <div>
-      <p>{cartoon.name}</p>
-    </div>
+    <Container>
+      <Row>
+        <Col md>
+          <Image fluid src={cartoon.image} width="100%" />
+        </Col>
+        <Col>
+          <Card>
+            <Card.Body>
+              <Card.Title>
+                {cartoon.name} ({cartoon.gender.substring(0, 1)})
+              </Card.Title>
+              <Card.Subtitle className="mb-2 ">
+                Species: {cartoon.species}
+              </Card.Subtitle>
+              <Card.Subtitle className="mb-2 ">
+                Status: {cartoon.status}
+              </Card.Subtitle>
+              <Card.Text>
+                Created: {moment(cartoon.created).format("MMMM Do YYYY")}
+              </Card.Text>
+            </Card.Body>
+          </Card>
+        </Col>
+      </Row>
+    </Container>
   );
 }
 

@@ -6,15 +6,8 @@ import { NavLink } from "react-router-dom";
 
 const StyleDiv = styled.div`
   .card {
-    margin: 1rem;
-    padding: 1rem;
-  }
-
-  .card-title {
-    text-decoration: none;
-    &:before {
-      content: " ";
-    }
+    margin: 0.5rem;
+    padding: 0.5rem;
   }
 `;
 
