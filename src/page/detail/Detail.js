@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { API_URL } from "../../constants/api";
-import { useParams } from "react-router-dom";
+import { useParams, useHistory } from "react-router-dom";
 import Spinner from "react-bootstrap/Spinner";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
@@ -15,7 +15,11 @@ function Detail() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
+  let history = useHistory();
   const { id } = useParams();
+  if (!id) {
+    history.pushState("/");
+  }
 
   const url = API_URL + "/" + id;
 
@@ -56,9 +60,7 @@ function Detail() {
               <Card.Title>
                 {cartoon.name} ({cartoon.gender.substring(0, 1)})
               </Card.Title>
-              <Card.Subtitle className="mb-2 ">
-                Species: {cartoon.species}
-              </Card.Subtitle>
+
               <Card.Subtitle className="mb-2 ">
                 Status: {cartoon.status}
               </Card.Subtitle>

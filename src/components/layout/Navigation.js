@@ -14,8 +14,8 @@ const Navigation = () => {
             <NavLink to="/" exact className="nav-link">
               Home
             </NavLink>
-            <NavLink to="/detail" className="nav-link">
-              Detail
+            <NavLink to="/contact" className="nav-link">
+              Contact
             </NavLink>
           </Nav>
         </Navbar.Collapse>
