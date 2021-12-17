@@ -18,6 +18,9 @@ export const schema = yup.object().shape({
     .string()
     .required("Please write your message")
     .min(10, "Required minimum 10 characters."),
+});
+
+export const schemaLogin = yup.object().shape({
   username: yup.string().required("Please enter your username"),
   password: yup.string().required("Please enter your password"),
 });
