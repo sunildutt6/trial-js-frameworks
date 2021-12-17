@@ -2,13 +2,15 @@ import { URL } from "../../constants/api";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import { useForm } from "react-hook-form";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { schemaLogin } from "../../constants/Schema";
 import { yupResolver } from "@hookform/resolvers/yup";
 import axios from "axios";
 import ValidationError from "../../constants/ValidationError";
 import styled from "styled-components";
 import Heading from "../../components/layout/Heading";
+import AuthContext from "../../context/AuthContext";
+import { useHistory } from "react-router-dom";
 
 const StyleForm = styled.div`
   display: flex;
@@ -28,6 +30,8 @@ function LoginForm() {
   const [submitting, setSubmitting] = useState(false);
   const [loginError, setLoginError] = useState(null);
 
+  const history = useHistory();
+
   const {
     register,
     handleSubmit,
@@ -36,13 +40,18 @@ function LoginForm() {
     resolver: yupResolver(schemaLogin),
   });
 
+  const [, setAuth] = useContext(AuthContext);
+
   async function onSubmit(data) {
     setSubmitting(true);
     setLoginError(null);
+    console.log(data);
 
     try {
       const response = await axios.post(URL, data);
       console.log(response.data);
+      setAuth(response.data);
+      history.push("/admin");
     } catch (error) {
       setLoginError(error.toString());
     } finally {

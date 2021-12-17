@@ -3,8 +3,7 @@ import styled from "styled-components";
 
 const Style = styled.div`
   color: darkred;
-  padding: 0.5rem;
-  display: inline-block;
+  margin: 0.5rem;
 `;
 const ValidationError = ({ children }) => {
   return <Style>{children}</Style>;
