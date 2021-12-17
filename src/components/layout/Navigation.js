@@ -17,6 +17,9 @@ const Navigation = () => {
             <NavLink to="/contact" className="nav-link">
               Contact
             </NavLink>
+            <NavLink to="/login" className="nav-link">
+              Login
+            </NavLink>
           </Nav>
         </Navbar.Collapse>
       </Container>
