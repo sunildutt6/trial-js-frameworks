@@ -84,7 +84,10 @@ function Contact() {
             )}
           </Form.Group>
 
-          <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
+          <Form.Group
+            className="mb-3 message-area"
+            controlId="exampleForm.ControlTextarea1"
+          >
             <Form.Control
               as="textarea"
               placeholder="Message"

@@ -2,11 +2,14 @@ import PropTypes from "prop-types";
 import styled from "styled-components";
 
 const Style = styled.div`
-  color: darkred;
-  margin: 0.5rem;
+  color: var(--red);
 `;
 const ValidationError = ({ children }) => {
-  return <Style>{children}</Style>;
+  return (
+    <Style>
+      <p>{children}</p>
+    </Style>
+  );
 };
 
 ValidationError.propTypes = {

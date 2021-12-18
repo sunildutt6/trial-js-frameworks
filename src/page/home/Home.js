@@ -36,7 +36,8 @@ const Home = () => {
 
   return (
     <Container>
-      <Heading title="Home-Page" />
+      <Heading title="Rick and Morty" />
+
       <Row>
         {cartoon.map(function (cartoon) {
           const { id, name, status, image } = cartoon;
