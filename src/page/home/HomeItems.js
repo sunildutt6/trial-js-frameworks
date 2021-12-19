@@ -23,10 +23,9 @@ const StyleDiv = styled.div`
   .heart {
     font-size: 1.5rem;
     cursor: pointer;
-    color: var(--green);
   }
   .fa {
-    color: var(--red);
+    background-color: var(--secondary);
   }
 `;
 
