@@ -23,9 +23,10 @@ const StyleDiv = styled.div`
   .heart {
     font-size: 1.5rem;
     cursor: pointer;
+    color: var(--green);
   }
   .fa {
-    color: var(--black);
+    color: var(--red);
   }
 `;
 
@@ -35,11 +36,11 @@ function HomeItems({ id, name, status, image }) {
   const favourites = getExistingFavs();
   let cssClass = "far";
 
-  const doesObjectExist = favourites.find(function (fav) {
+  const objectExist = favourites.find(function (fav) {
     return parseInt(fav.id) === id;
   });
 
-  if (doesObjectExist) {
+  if (objectExist) {
     cssClass = "fa";
   }
 
@@ -73,7 +74,7 @@ function HomeItems({ id, name, status, image }) {
             <Card.Title className="card-title">
               {name.toUpperCase().substring(0, 6)}
               <AiOutlineHeart
-                className={`isActive heart ${cssClass ? "fa" : "far"}`}
+                className={`isActive heart ${cssClass} ? "fa" : "far"}`}
                 data-id={id}
                 data-name={name}
                 data-image={image}
